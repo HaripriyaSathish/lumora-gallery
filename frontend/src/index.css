@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #101b2d;
+  --hero-blue: #4a6b82;
+  --accent: #c8674a;
+  --soft: #f6f3ef;
+  --foreground: #14213d;
+  --muted-foreground: #6b7280;
+  --border: #e5e0da;
+  --process: #0d1626;
+}
+
+@theme {
+  --color-navy: var(--navy);
+  --color-hero-blue: var(--hero-blue);
+  --color-accent: var(--accent);
+  --color-soft: var(--soft);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-process: var(--process);
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scroll-line {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) scaleY(0.6); }
+  50% { opacity: 1; transform: translateX(-50%) scaleY(1); }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.grain {
+  position: relative;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.grain > * {
+  position: relative;
+  z-index: 1;
+}

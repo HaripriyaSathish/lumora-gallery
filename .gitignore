@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+backend/media/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Environment secrets — never commit these
+.env
+backend/.env
+frontend/.env
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
