@@ -20,13 +20,13 @@ export default function FeaturedWorkBlock({ shoot, reversed, onOpen }) {
         </button>
       </Reveal>
       <Reveal from={reversed ? 'left' : 'right'} delay={120} className={cn('md:col-span-2', reversed && 'md:order-1')}>
-        <p className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-accent">
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-accent">
           {shoot.tag}
         </p>
-        <h3 className="mt-4 text-2xl font-bold tracking-[-0.01em] text-foreground sm:text-3xl">
+        <h3 className="mt-4 text-3xl font-extrabold tracking-[-0.01em] text-foreground sm:text-4xl">
           {shoot.title}
         </h3>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{shoot.story}</p>
+        <p className="mt-4 text-base font-medium leading-relaxed text-foreground/80">{shoot.story}</p>
       </Reveal>
     </article>
   );

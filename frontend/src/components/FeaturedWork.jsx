@@ -30,7 +30,7 @@ export default function FeaturedWork() {
         <h2 className="mt-5 text-3xl font-extrabold tracking-[-0.01em] text-foreground sm:text-4xl lg:text-[2.75rem]">
           {data.heading}
         </h2>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-lg text-base font-medium leading-relaxed text-muted-foreground">
           {data.subtext}
         </p>
       </Reveal>

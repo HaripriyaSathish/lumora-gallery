@@ -28,16 +28,16 @@ export default function MeetTheStudio() {
         </Reveal>
         <Reveal from="right" delay={120} className="md:col-span-3">
           <Eyebrow align="left">{data.eyebrow_text}</Eyebrow>
-          <h2 className="mt-5 text-2xl font-extrabold tracking-[-0.01em] text-foreground sm:text-3xl">
+                    <h2 className="mt-5 text-3xl font-extrabold tracking-[-0.01em] text-foreground sm:text-4xl">
             {data.name}
           </h2>
-          <p className="mt-1 text-[0.68rem] uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="mt-1 text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
             {data.role}
           </p>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-foreground/80">
             {data.bio_paragraph_1}
           </p>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-foreground/80">
             {data.bio_paragraph_2}
           </p>
           <p className="mt-8 max-w-lg border-l-2 border-accent pl-5 text-lg italic leading-relaxed text-foreground">

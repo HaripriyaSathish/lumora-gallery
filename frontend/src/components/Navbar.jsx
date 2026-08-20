@@ -32,11 +32,11 @@ export default function Navbar() {
       }`}
     >
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-5 sm:flex sm:justify-between md:px-10">
-        <span className={`text-lg md:text-xl font-semibold tracking-[0.2em] uppercase transition-colors ${textColor}`}>
+          <span className={`text-lg md:text-xl font-bold tracking-[0.2em] uppercase transition-colors ${textColor}`}>
           {siteName}
         </span>
 
-        <div className={`hidden md:flex gap-10 text-sm tracking-widest uppercase transition-colors ${textColor}`}>
+        <div className={`hidden md:flex gap-10 text-sm font-bold tracking-widest uppercase transition-colors ${textColor}`}>
           {links.map((link) => (
             <a key={link.label} href={link.href} className="hover:opacity-70 transition">
               {link.label}
@@ -62,7 +62,7 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-sm tracking-widest uppercase text-navy"
+                            className="text-sm font-bold tracking-widest uppercase text-navy"
             >
               {link.label}
             </a>
