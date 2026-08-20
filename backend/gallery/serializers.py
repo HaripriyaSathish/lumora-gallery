@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import (
     SiteSettings, HeroSection, SpecialtiesSection, SpecialtyItem,
-    StatItem, FeaturedWorkSection, FeaturedShoot,
+    StatsSection, StatItem, ManifestoSection, FeaturedWorkSection, FeaturedShoot,
     TestimonialsSection, Testimonial, InstagramSection, InstagramImage,
     CTASection, Enquiry, FAQSection, FAQItem,
     StudioSection, ProcessSection, ProcessStep, FooterSection
@@ -18,7 +18,7 @@ class HeroSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = HeroSection
         fields = [
-            'title', 'subtitle', 'background_image',
+            'title', 'subtitle', 'trust_line', 'background_image',
             'primary_button_text', 'primary_button_link',
             'secondary_button_text', 'secondary_button_link',
         ]
@@ -38,15 +38,27 @@ class SpecialtyItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SpecialtyItem
-        fields = ['id', 'label', 'image', 'order']
+        fields = ['id', 'label', 'description', 'image', 'order']
 
     def get_image(self, obj):
-        return obj.image.url if obj.image else None    
+        return obj.image.url if obj.image else None
+
+class StatsSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StatsSection
+        fields = ['eyebrow_text', 'heading', 'subtext']
+
 
 class StatItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = StatItem
-        fields = ['id', 'value', 'suffix', 'label', 'order']    
+        fields = ['id', 'value', 'suffix', 'label', 'order']
+
+
+class ManifestoSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ManifestoSection
+        fields = ['eyebrow_text', 'statement', 'attribution']  
 
 class FeaturedWorkSectionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -106,7 +118,7 @@ class TestimonialSerializer(serializers.ModelSerializer):
 class InstagramSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = InstagramSection
-        fields = ['heading', 'handle', 'profile_url']
+        fields = ['heading', 'subtext', 'handle', 'profile_url']
 
 
 class InstagramImageSerializer(serializers.ModelSerializer):

@@ -16,7 +16,12 @@ export default function SpecialtyCard({ item }) {
         <span className="block text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white transition-transform duration-[400ms] ease-editorial group-hover:-translate-y-1">
           {item.label}
         </span>
-        <span className="mt-2 block h-px w-0 bg-accent transition-all duration-[400ms] ease-editorial group-hover:w-10" />
+                <span className="mt-2 block h-px w-0 bg-accent transition-all duration-[400ms] ease-editorial group-hover:w-10" />
+        {item.description && (
+          <span className="mt-2 block max-w-[22ch] text-xs leading-snug text-white/80">
+            {item.description}
+          </span>
+        )}
       </span>
     </a>
   );

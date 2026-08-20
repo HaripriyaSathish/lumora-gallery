@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Specialties from './components/Specialties';
+import Manifesto from './components/Manifesto';
 import StatsSection from './components/StatsSection';
 import FeaturedWork from './components/FeaturedWork';
 import MeetTheStudio from './components/MeetTheStudio';
@@ -19,6 +20,7 @@ function App() {
         <Navbar />
         <Hero />
         <Specialties />
+        <Manifesto />
         <StatsSection />
         <FeaturedWork />
         <MeetTheStudio />

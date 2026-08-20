@@ -48,9 +48,14 @@ export default function Hero() {
                 href={hero.secondary_button_link}
                 className="rounded-full border border-white/60 px-7 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-200 hover:border-white hover:bg-white/10"
               >
-                {hero.secondary_button_text}
+                                {hero.secondary_button_text}
               </a>
             </div>
+            {hero.trust_line && (
+              <p className="mt-6 animate-[rise_0.9s_cubic-bezier(0.22,1,0.36,1)_0.6s_both] text-[0.7rem] uppercase tracking-[0.2em] text-white/70">
+                {hero.trust_line}
+              </p>
+            )}
           </div>
         </div>
       </div>

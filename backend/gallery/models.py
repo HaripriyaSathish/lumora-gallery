@@ -45,6 +45,12 @@ class HeroSection(SingletonModel):
     subtitle = models.TextField(
         default="The best for all your photography needs, immortalizing your moments in immersive art."
     )
+    trust_line = models.CharField(
+        max_length=150,
+        blank=True,
+        default="",
+        help_text="Small credibility line under the buttons, e.g. '500+ sessions captured · Bangalore, worldwide'"
+    )
     background_image = CloudinaryField('image')
     primary_button_text = models.CharField(max_length=50, default="Book Now")
     primary_button_link = models.CharField(max_length=200, default="#contact")
@@ -64,6 +70,12 @@ class SpecialtiesSection(SingletonModel):
 
 class SpecialtyItem(models.Model):
     label = models.CharField(max_length=100, help_text="e.g. Weddings, Portraits, Newborns")
+    description = models.CharField(
+        max_length=160,
+        blank=True,
+        default="",
+        help_text="Short one-line description shown under the label, e.g. 'Timeless coverage from first look to last dance'"
+    )
     image = CloudinaryField('image')
     order = models.PositiveIntegerField(default=0, help_text="Lower numbers show first")
 
@@ -71,7 +83,20 @@ class SpecialtyItem(models.Model):
         ordering = ['order']
 
     def __str__(self):
-        return self.label    
+        return self.label
+
+
+class StatsSection(SingletonModel):
+    eyebrow_text = models.CharField(max_length=100, default="By the Numbers")
+    heading = models.CharField(max_length=200, blank=True, default="")
+    subtext = models.CharField(
+        max_length=255,
+        blank=True,
+        default="Numbers can't capture a wedding day, but they tell you we've done this before."
+    )
+
+    def __str__(self):
+        return "Stats Section"
 
 
 class StatItem(models.Model):
@@ -84,7 +109,24 @@ class StatItem(models.Model):
         ordering = ['order']
 
     def __str__(self):
-        return f"{self.value}{self.suffix} - {self.label}"    
+        return f"{self.value}{self.suffix} - {self.label}"
+
+
+class ManifestoSection(SingletonModel):
+    """Text-only editorial statement, no image — a deliberate visual breather between photo-heavy sections."""
+    eyebrow_text = models.CharField(max_length=100, default="Our Philosophy")
+    statement = models.TextField(
+        default="We don't direct moments — we wait for them. Every frame we deliver is one you'd have wanted to remember, even if we hadn't been there to capture it."
+    )
+    attribution = models.CharField(
+        max_length=150,
+        blank=True,
+        default="",
+        help_text="Optional, e.g. 'Elena Voss, Founder'"
+    )
+
+    def __str__(self):
+        return "Manifesto Section"
 
 class FeaturedWorkSection(SingletonModel):
     eyebrow_text = models.CharField(max_length=100, default="Portfolio Highlights")
@@ -174,6 +216,11 @@ class Testimonial(models.Model):
 
 class InstagramSection(SingletonModel):
     heading = models.CharField(max_length=200, default="Follow the Studio")
+    subtext = models.CharField(
+        max_length=200,
+        blank=True,
+        default="Behind-the-scenes and unposted favorites — updated weekly."
+    )
     handle = models.CharField(max_length=100, default="@lumorastudio")
     profile_url = models.URLField(default="https://instagram.com")
 

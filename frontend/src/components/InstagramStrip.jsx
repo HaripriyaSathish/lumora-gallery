@@ -19,9 +19,14 @@ export default function InstagramStrip() {
         <h2 className="text-xl font-bold tracking-[-0.01em] text-foreground sm:text-2xl">
           {data.heading}
         </h2>
-        <p className="mt-2 text-[0.7rem] uppercase tracking-[0.24em] text-accent">
+                <p className="mt-2 text-[0.7rem] uppercase tracking-[0.24em] text-accent">
           {data.handle}
         </p>
+        {data.subtext && (
+          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+            {data.subtext}
+          </p>
+        )}
       </Reveal>
 
       <div className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">

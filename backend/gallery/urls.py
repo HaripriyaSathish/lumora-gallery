@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     site_settings_view, hero_section_view, specialties_view,
-    stats_view, featured_work_view, testimonials_view, instagram_view,
+    stats_view, manifesto_view, featured_work_view, testimonials_view, instagram_view,
     cta_section_view, enquiry_create_view, faq_view, studio_view, process_view,
     footer_view
 )
@@ -11,6 +11,7 @@ urlpatterns = [
     path('hero/', hero_section_view, name='hero-section'),
     path('specialties/', specialties_view, name='specialties'),
     path('stats/', stats_view, name='stats'),
+    path('manifesto/', manifesto_view, name='manifesto'),
     path('featured-work/', featured_work_view, name='featured-work'),
     path('testimonials/', testimonials_view, name='testimonials'),
     path('instagram/', instagram_view, name='instagram'),

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     SiteSettings, HeroSection, SpecialtiesSection, SpecialtyItem,
-    StatItem, FeaturedWorkSection, FeaturedShoot,
+     StatsSection, StatItem, ManifestoSection, FeaturedWorkSection, FeaturedShoot,
     TestimonialsSection, Testimonial, InstagramSection, InstagramImage,
     CTASection, Enquiry, FAQSection, FAQItem,
     StudioSection, ProcessSection, ProcessStep, FooterSection
@@ -32,16 +32,26 @@ class SpecialtiesSectionAdmin(SingletonAdmin):
 
 @admin.register(SpecialtyItem)
 class SpecialtyItemAdmin(admin.ModelAdmin):
-    list_display = ['label', 'order']
+    list_display = ['label', 'description', 'order']
     list_editable = ['order']
     ordering = ['order']
+
+
+@admin.register(StatsSection)
+class StatsSectionAdmin(SingletonAdmin):
+    pass
+
 
 @admin.register(StatItem)
 class StatItemAdmin(admin.ModelAdmin):
     list_display = ['label', 'value', 'suffix', 'order']
     list_editable = ['value', 'suffix', 'order']
-    ordering = ['order']    
+    ordering = ['order']
 
+
+@admin.register(ManifestoSection)
+class ManifestoSectionAdmin(SingletonAdmin):
+    pass
 
 @admin.register(FeaturedWorkSection)
 class FeaturedWorkSectionAdmin(SingletonAdmin):

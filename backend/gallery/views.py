@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import (
     SiteSettings, HeroSection, SpecialtiesSection, SpecialtyItem,
-    StatItem, FeaturedWorkSection, FeaturedShoot,
+    StatsSection, StatItem, ManifestoSection, FeaturedWorkSection, FeaturedShoot,
     TestimonialsSection, Testimonial, InstagramSection, InstagramImage,
     CTASection, Enquiry, FAQSection, FAQItem,
     StudioSection, ProcessSection, ProcessStep, FooterSection
@@ -14,6 +14,7 @@ from .serializers import InstagramImageSerializer
 from .serializers import TestimonialSerializer
 from .serializers import FeaturedShootSerializer
 from .serializers import StatItemSerializer
+from .serializers import ManifestoSectionSerializer
 from .serializers import SpecialtyItemSerializer
 from .serializers import SiteSettingsSerializer, HeroSectionSerializer
 
@@ -42,8 +43,19 @@ def specialties_view(request):
 
 @api_view(['GET'])
 def stats_view(request):
+    section = StatsSection.load()
     items = StatItem.objects.all()
-    return Response(StatItemSerializer(items, many=True).data)
+    return Response({
+        'eyebrow_text': section.eyebrow_text,
+        'heading': section.heading,
+        'subtext': section.subtext,
+        'items': StatItemSerializer(items, many=True).data,
+    })
+
+@api_view(['GET'])
+def manifesto_view(request):
+    obj = ManifestoSection.load()
+    return Response(ManifestoSectionSerializer(obj).data)
 
 @api_view(['GET'])
 def featured_work_view(request):
@@ -87,6 +99,7 @@ def instagram_view(request):
     items = InstagramImage.objects.all()
     return Response({
         'heading': section.heading,
+        'subtext': section.subtext,
         'handle': section.handle,
         'profile_url': section.profile_url,
         'items': InstagramImageSerializer(items, many=True).data,
